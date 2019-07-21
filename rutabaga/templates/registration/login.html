@@ -1,0 +1,17 @@
+{% extends 'auth_layout.html' %}
+{% block auth %}
+  <h1>Rutabaga</h1>
+  <p class="lead text-muted">Create your personnal RSS feed reader!</p>
+  <div class="login-form-container">
+    {% load crispy_forms_tags %}
+    <form method="POST">
+      {% csrf_token %}
+      {{ form|crispy }}
+      <button type="submit" class="btn btn-sm btn-outline-primary">Login</button>
+    </form>
+    <p class="mt-2">
+      Or
+      <a href="{% url 'django_registration_register' %}">Create a new account</a>
+    </p>
+  </div>
+{% endblock auth %}
